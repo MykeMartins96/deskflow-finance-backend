@@ -61,7 +61,7 @@ Regras para a resposta:
 `;
 
     const response = await ai.interactions.create({
-      model: "gemini-3.7-flash",
+      model: "gemini-3.1-flash-lite",
       input: prompt,
     });
 
