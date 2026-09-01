@@ -18,6 +18,7 @@ export async function analyzeTasks(req, res) {
       .map((task, index) => {
         return `
 Tarefa ${index + 1}
+
 Título: ${task.title}
 Descrição: ${task.description || "Sem descrição"}
 Status: ${task.status}
@@ -69,6 +70,18 @@ Regras para a resposta:
     });
   } catch (error) {
     console.error("Erro ao analisar tarefas com IA:", error);
+
+    // Limite de requisições/cota da API Gemini
+    if (
+      error?.statusCode === 429 ||
+      error?.status === 429 ||
+      error?.error?.code === "too_many_requests"
+    ) {
+      return res.status(429).json({
+        message:
+          "O limite temporário da IA foi atingido. Aguarde alguns instantes e tente novamente.",
+      });
+    }
 
     return res.status(500).json({
       message: "Erro ao analisar tarefas com IA.",
