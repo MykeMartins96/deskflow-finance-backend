@@ -118,5 +118,5 @@ As senhas dos usuários são armazenadas utilizando hash, e não em texto puro.
 - Melhorias no tratamento de erros
 - Deploy completo da API
 
-📸 Imagem do Projeto
-![Des
+## 📸 Imagem do Projeto
+![Deskflow-Finance](https://github.com/MykeMartins96/deskflow-finance-backend/blob/main/Captura%20de%20tela%202026-09-01%20001529.png?raw=true)
